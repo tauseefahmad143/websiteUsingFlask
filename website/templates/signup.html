@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign-up</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #b6b6b6;
+        }
+
+        input,select {
+            padding: 8px 10px;
+            width: 100%;
+            margin: 7px 0px;
+            background-color: rgb(245, 239, 209);
+            outline: none;
+            border: 1px solid #222;
+            font-size: 15px;
+            border-radius: 4px;
+        }
+
+        form {
+            border-radius: 7px;
+            padding: 10px;
+            font-weight: 550;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            width: 450px;
+            border: 1px solid black;
+            background-color: rgb(227, 244, 247);
+            animation: move 0.5s linear;
+        }
+
+        @keyframes move {
+            0% {
+                scale: 0.9;
+            }
+
+            100% {
+                scale: 1;
+            }
+        }
+
+        .log-sign {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 7px 20px;
+            font-weight: 550;
+            background-color: rgb(41, 37, 38);
+            outline: none;
+            border-radius: 6px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #b4adad;
+            color: #222;
+        }
+
+        button:active {
+            color: red;
+        }
+
+        .typing {
+            color: red;
+        }
+
+        .heading {
+            margin-bottom: 30px;
+        }
+
+        .typed-cursor {
+            color: blue;
+        }
+
+        h1 {
+            text-align: center;
+            color: brown;
+        }
+
+        .gender input {
+            width: 5%;
+            margin-right: 50px;
+        }
+        h4{
+            color: green;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="/saveData" method="post" class="form-class">
+            <h4>{{msg}}</h4>
+            <h1>Sign-up page</h1>
+            <h2 class="heading">
+                <span class="typing"></span>
+            </h2>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="enter your name">
+            <div class="gender">
+                <br><label for="radio">Gender:</label><br>
+                <label for="mRadio">Male</label>
+                <input type="radio" value="Male" name="Gender" id="mRadio">
+                <label for="fRadio">Female</label>
+                <input type="radio" value="Female" name="Gender" id="fRadio">
+                <label for="cRadio">Custom</label>
+                <input type="radio" value="Custom" name="Gender" id="cRadio">
+            </div>
+
+            <br><label for="option">Course</label>
+            <select name="option" id="option">
+                <option value="" selected disabled>Select an option</option>
+                <optgroup label="IT">
+                    <option value="Bsc.IT">Bsc.IT</option>
+                    <option value="Msc.IT">Msc.IT</option>
+                    <option value="B.Tech(IT)">B.Tech(IT)</option>
+                    <option value="M.Tech(IT)">M.Tech(IT)</option>
+                    <option value="BCA">BCA</option>
+                    <option value="MCA">MCA</option>
+                </optgroup>
+                <optgroup label="Non-IT">
+                    <option value="Bsc">Bsc</option>
+                    <option value="Msc">Msc</option>
+                    <option value="MA">MA</option>
+                    <option value="BA">BA</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="M.Tech">M.Tech</option>
+                    <option value="B.com">B.com</option>
+                    <option value="BFM">BFM</option>
+                </optgroup>
+            </select>
+            <br><label for="email">E-mail:</label>
+            <input type="email" name="email" placeholder="Enter your email id" id="email"><br>
+            <label for="pass" >Password:</label>
+            <input type="password" name="password" placeholder="Enter your password" id="pass">
+            <div class="log-sign">
+                <button class="signup" type="submit">Signup</button>
+                <button class="login" type="button" onclick="redirectToLogin()">Login</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+
+        setTimeout(function () {
+            var typed = new Typed(".typing", {
+                strings: ["Login", "Sign-up", "page"],
+                typeSpeed: 150,
+                backSpeed: 150,
+                loop: true
+            });
+        }, 500);
+        function redirectToLogin() {
+            window.location.href = "/login";  // Update this URL as needed
+        }
+    </script>
+</body>
+
+</html>
